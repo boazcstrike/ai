@@ -1,29 +1,37 @@
 # AI
 
+This repository contains everything about AI.
+
 ## All in one
+
 [Harbor](https://github.com/av/harbor)
 Containerized LLM toolkit. Run LLM backends, APIs, frontends, and additional services via a concise CLI.
 
-## prompt libraries
-[AI LLM System Prompts Gsheet](https://docs.google.com/spreadsheets/d/1lk6JNKtl3D4bx9b5z_kJ5J8UqMYj0WKFdQ2yE7R87kg/edit?gid=0#gid=0)
-[msty prompt library](https://msty.app/prompts-library)
-[aiforedu](https://www.aiforeducation.io/prompt-library)
-[hammerai](https://www.hammerai.com/)
+## Prompt Libraries
 
-## leaderboard
+- [AI LLM System Prompts Gsheet](https://docs.google.com/spreadsheets/d/1lk6JNKtl3D4bx9b5z_kJ5J8UqMYj0WKFdQ2yE7R87kg/edit?gid=0#gid=0)
+- [msty prompt library](https://msty.app/prompts-library)
+- [aiforedu](https://www.aiforeducation.io/prompt-library)
+- [hammerai](https://www.hammerai.com/)
+
+## LLM Leaderboards
 
 [AI Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard)
 
 ###### My PC Setup
 
+```
 i5 6600K 4-cores
 GTX 1070 8gbvram
 16gb RAM
+```
 
-all more than 6.8gb pushes to CPU if higher settings
 
 ## LLMs
 
+*all more than 6.8gb pushes to CPU if higher settings*
+
+###### mistral-nemo
 * mistral-nemo:12b-instruct-2407-q4_0 8.1gb - bad
 * mistral-nemo:12b-instruct-2407-q3_K_M 7.6gb - good, slight throttle with non-default
 - earlier knowledge cutoff and conversational
@@ -49,15 +57,29 @@ all more than 6.8gb pushes to CPU if higher settings
 ###### phi3:latest - fast
 - recommended: lowest
 
-=================================================
+### LLM Chat Web UI Platforms
+- [Mysty](https://msty.app/) ⭐️⭐️⭐️⭐️⭐️
+- [gemma2 recommended](https://github.com/ivanfioravanti/chatbot-ollama ) ?
+- [mobile app](https://github.com/AugustDev/enchanted) ⭐️⭐️⭐️⭐️⭐️
 
 ## TTS
-[AlwaysReddy](https://github.com/ILikeAI/AlwaysReddy)
-[Piper](https://github.com/rhasspy/piper)
-[High-performance inference of OpenAI's Whisper automatic speech recognition (ASR) model](https://github.com/ggerganov/whisper.cpp)
-[XTTS-2-UI](https://github.com/BoltzmannEntropy/xtts2-ui)
 
-## repos:
+tutorials:
+- [Piper training tutorial](https://ssamjh.nz/create-custom-piper-tts-voice/)
+
+repos:
+- [AlwaysReddy](https://github.com/ILikeAI/AlwaysReddy)
+- [Piper](https://github.com/rhasspy/piper)
+- [High-performance inference of OpenAI's Whisper automatic speech recognition (ASR) model](https://github.com/ggerganov/whisper.cpp)
+- [XTTS-2-UI](https://github.com/BoltzmannEntropy/xtts2-ui)
+- [ttispiper](https://github.com/voicedock/ttspiper)
+dockerized piper
+```
+docker run --rm -v "$(pwd)/config:/data/config" -v "$(pwd)/dataset:/data/dataset" -p 9999:9999 ghcr.io/voicedock/ttspiper:latest ttspiper
+```
+
+
+## random later repos:
 
 https://github.com/danwiseman/epimetheus
 https://github.com/hybridx/ai-slack-companion
@@ -77,41 +99,37 @@ https://github.com/Fortyseven/ircawp
 [MindsDB](https://github.com/mindsdb/mindsdb)
 MindsDB is the platform for customizing AI from enterprise data. You can create, serve, and fine-tune models in real-time from your database, vector store, and application data.
 
+## references
 
-https://medium.com/@chinmayd49/self-host-llm-with-ec2-vllm-langchain-fastapi-llm-cache-and-huggingface-model-7a2efa2dcdab#:~:text=I%20would%20recommend%20go%20through,for%20ML%20and%20LLM%20specifically.&text=For%20application%20and%20OS%20images,softwares%20and%20are%20command%20friendly.
+[llm caching fastapi](https://medium.com/@chinmayd49/self-host-llm-with-ec2-vllm-langchain-fastapi-llm-cache-and-huggingface-model-7a2efa2dcdab#:~:text=I%20would%20recommend%20go%20through,for%20ML%20and%20LLM%20specifically.&text=For%20application%20and%20OS%20images,softwares%20and%20are%20command%20friendly.)
 
-https://topai.tools/t/automatic-1111
+- https://topai.tools/t/automatic-1111
+- https://zrok.io/pricing/
+- https://localhost.run/
+- https://playit.gg/
+- https://theboroer.github.io/localtunnel-www/
 
-=================================================
 
-LLM Chat Web UI Platforms
-https://msty.app/ ⭐️⭐️⭐️⭐️⭐️
-https://github.com/ivanfioravanti/chatbot-ollama ?
 
-mobile
-https://github.com/AugustDev/enchanted ⭐️⭐️⭐️⭐️⭐️
-
-=================================================
-
-https://zrok.io/pricing/
-https://localhost.run/
-https://playit.gg/
-https://theboroer.github.io/localtunnel-www/
-
+## serving it locally to public
+```
 lt --port 8000
 
 npm install -g localtunnel
-
+```
 for the password
 https://loca.lt/mytunnelpassword
 
 
-curl http://localhost:11434/api/generate -d '{"model": "gemma2","prompt": "Why is the sky blue?"}'
+## shortcut snippets and api
 
-=================================================
+```
+curl http://localhost:11434/api/generate -d '{"model": "gemma2","prompt": "Why is the sky blue?"}'
+```
 
 http://localhost:11434/api/generate
 http://localhost:11434/api/chat
+```
 {
 	"model": "qwen2",
 	"prompt": "what did you previously say? please explain.",
@@ -119,3 +137,4 @@ http://localhost:11434/api/chat
 	"format": "json"
 }
 
+```
